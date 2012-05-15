@@ -37,7 +37,7 @@ module SearchMagic
     end
   
     def searchable_value_for(obj)
-      value_for(get_value(obj)).downcase.split.map {|word| [name.blank? ? nil : name, word.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n,'').to_s].compact.join(separator)}
+      value_for(get_value(obj)).split.map {|word| [name.blank? ? nil : name, word.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n,'').to_s.downcase].compact.join(separator)}
     end
     
     private
